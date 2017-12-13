@@ -80,8 +80,10 @@ class Table extends Container implements Listener
         for($i=0; $i<$colspan; $i++)
         {
             $realColumnNumber = $columnNumber + $i;
-            $currentWidth += isset($this->widthsOfColumns[$realColumnNumber]) ? $this->widthsOfColumns[$realColumnNumber] : 0;
+            $currentWidth += isset($this->widthsOfColumns[$realColumnNumber]) ? (int) $this->widthsOfColumns[$realColumnNumber] : 0;
         }
+
+        $width = preg_replace('/%/', '', $width);
         
         $diff = ($width - $currentWidth)/$colspan;
         
