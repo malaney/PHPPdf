@@ -18,6 +18,7 @@ function fetchGitVendors()
         echo "> Installing/Updating $name\n";
     
         $installDir = PHPPDF_VENDOR_DIR.'/'.$name;
+
         if (!is_dir($installDir)) {
             system(sprintf('git clone %s %s', $url, $installDir));
         }
